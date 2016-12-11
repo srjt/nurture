@@ -4,7 +4,6 @@ var user_service_1 = require("../../shared/user/user.service");
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var page_1 = require("ui/page");
-var color_1 = require("color");
 var LoginComponent = (function () {
     function LoginComponent(router, userService, page) {
         this.router = router;
@@ -18,6 +17,7 @@ var LoginComponent = (function () {
     LoginComponent.prototype.ngOnInit = function () {
         this.page.actionBarHidden = true;
         this.page.backgroundImage = "res://bg_login";
+        this.page.backgroundSpanUnderStatusBar = true;
     };
     LoginComponent.prototype.submit = function () {
         if (!this.user.isValidEmail()) {
@@ -33,6 +33,7 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
+        console.log(this.user.password);
         this.userService.login(this.user)
             .subscribe(function () { return _this.router.navigate(["/list"]); }, function (error) { return alert("Unfortunately we could not find your account."); });
     };
@@ -46,16 +47,19 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.toggleDisplay = function () {
         this.isLoggingIn = !this.isLoggingIn;
-        var container = this.container.nativeElement;
-        container.animate({
-            backgroundColor: this.isLoggingIn ? new color_1.Color("white") : new color_1.Color("#301217"),
-            duration: 200
-        });
     };
     __decorate([
         core_1.ViewChild("container"), 
         __metadata('design:type', core_1.ElementRef)
     ], LoginComponent.prototype, "container", void 0);
+    __decorate([
+        core_1.ViewChild("email"), 
+        __metadata('design:type', core_1.ElementRef)
+    ], LoginComponent.prototype, "email", void 0);
+    __decorate([
+        core_1.ViewChild("password"), 
+        __metadata('design:type', core_1.ElementRef)
+    ], LoginComponent.prototype, "password", void 0);
     LoginComponent = __decorate([
         core_1.Component({
             selector: "my-app",

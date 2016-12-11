@@ -33,6 +33,7 @@ export class UserService {
   }
 
   login(user: User) {
+    console.log(user.email);
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
 

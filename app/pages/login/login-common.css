@@ -2,19 +2,27 @@ StackLayout {
   margin-left: 30;
   margin-right: 30;
   padding-bottom: 15;
+  padding-top: 20;
+  opacity: .8;
   background-color: white;
 }
 Image {
   margin-top: 5;
   margin-bottom: 20;
-}
+} 
 Button, TextField {
+  background-color: #e8d3b2;
   margin-left: 16;
   margin-right: 16;
   margin-bottom: 10;
-}
-.submit-button {
-  background-color: #CB1D00;
+} 
+.button-sign-in  {
+  background-color: #b63214;
   color: white;
   margin-top: 20;
+} 
+.button-sign-up {
+  background-color: white;
+
 }
+ 

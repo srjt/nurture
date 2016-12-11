@@ -18,6 +18,8 @@ export class LoginComponent implements OnInit {
   user: User;
   isLoggingIn = true;
   @ViewChild("container") container: ElementRef;
+  @ViewChild("email") email: ElementRef;
+  @ViewChild("password") password: ElementRef;
 
   constructor(private router: Router, private userService: UserService, private page: Page) {
     this.user = new User();
@@ -27,6 +29,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.page.actionBarHidden = true;
     this.page.backgroundImage = "res://bg_login";
+    this.page.backgroundSpanUnderStatusBar = true;
+    
   }
   submit() {
     if(!this.user.isValidEmail()){
@@ -40,6 +44,7 @@ export class LoginComponent implements OnInit {
     }
   }
   login() {
+    console.log(this.user.password);
     this.userService.login(this.user)
       .subscribe(
         () => this.router.navigate(["/list"]),
@@ -59,11 +64,6 @@ export class LoginComponent implements OnInit {
 
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
-    let container = <View>this.container.nativeElement;
-    container.animate({
-      backgroundColor: this.isLoggingIn ? new Color("white") : new Color("#301217"),
-      duration: 200
-    });
+     
   }
-   
 }

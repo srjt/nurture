@@ -1,5 +1,6 @@
 StackLayout {
-  height: 305;
+  height: 305;	
+  padding: 20px;
 }
 Button {
   height: 40;
