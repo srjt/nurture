@@ -1,12 +1,22 @@
 "use strict";
 var core_1 = require("@angular/core");
 var page_1 = require("ui/page");
+var imageSource = require("image-source");
 var DashboardItemComponent = (function () {
     function DashboardItemComponent(page) {
         this.page = page;
-        this.data = {};
     }
     DashboardItemComponent.prototype.ngOnInit = function () {
+        this.loadImage();
+    };
+    DashboardItemComponent.prototype.loadImage = function () {
+        var _this = this;
+        imageSource.fromUrl(this.data.picUrl)
+            .then(function (res) {
+            _this.thumbnailPic = res;
+        }, function (error) {
+            _this.thumbnailPic = imageSource.fromResource("bg_login");
+        });
     };
     __decorate([
         core_1.Input(), 
