@@ -5,6 +5,7 @@ var router_1 = require("nativescript-angular/router");
 var http_1 = require("nativescript-angular/http");
 var forms_1 = require("nativescript-angular/forms");
 var app_component_1 = require("./app.component");
+var dashboardItem_component_1 = require("./pages/dashboard/dashboardItem.component");
 var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
     function AppModule() {
@@ -12,7 +13,8 @@ var AppModule = (function () {
     AppModule = __decorate([
         core_1.NgModule({
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                dashboardItem_component_1.DashboardItemComponent
             ].concat(app_routing_1.navigatableComponents),
             bootstrap: [app_component_1.AppComponent],
             imports: [

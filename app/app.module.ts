@@ -5,11 +5,14 @@ import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 import { AppComponent } from "./app.component";
+import { DashboardItemComponent } from "./pages/dashboard/dashboardItem.component";
+
 import { routes, navigatableComponents } from "./app.routing";
 
 @NgModule({
     declarations: [
     	AppComponent,
+        DashboardItemComponent,
         ...navigatableComponents
     ],
     bootstrap: [AppComponent],

@@ -15,14 +15,17 @@ import { TextField } from "ui/text-field";
 })
 export class LoginComponent implements OnInit {
 
-  user: User;
-  isLoggingIn = true;
   @ViewChild("container") container: ElementRef;
   @ViewChild("email") email: ElementRef;
   @ViewChild("password") password: ElementRef;
+  user: User;
+  isLoggingIn = true;
+ 
 
   constructor(private router: Router, private userService: UserService, private page: Page) {
     this.user = new User();
+
+    //TODO: test code
     this.user.email = "user@nativescript.org";
     this.user.password = "password";
   }
@@ -31,6 +34,8 @@ export class LoginComponent implements OnInit {
     this.page.backgroundImage = "res://bg_login";
     this.page.backgroundSpanUnderStatusBar = true;
     
+    //TODO: test code
+    this.login(); 
   }
   submit() {
     if(!this.user.isValidEmail()){
@@ -47,7 +52,7 @@ export class LoginComponent implements OnInit {
     console.log(this.user.password);
     this.userService.login(this.user)
       .subscribe(
-        () => this.router.navigate(["/list"]),
+        () => this.router.navigate(["/dashboard"]),
         (error) => alert("Unfortunately we could not find your account.")
       );
   }

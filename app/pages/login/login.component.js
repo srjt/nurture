@@ -11,6 +11,7 @@ var LoginComponent = (function () {
         this.page = page;
         this.isLoggingIn = true;
         this.user = new user_1.User();
+        //TODO: test code
         this.user.email = "user@nativescript.org";
         this.user.password = "password";
     }
@@ -18,6 +19,8 @@ var LoginComponent = (function () {
         this.page.actionBarHidden = true;
         this.page.backgroundImage = "res://bg_login";
         this.page.backgroundSpanUnderStatusBar = true;
+        //TODO: test code
+        this.login();
     };
     LoginComponent.prototype.submit = function () {
         if (!this.user.isValidEmail()) {
@@ -35,7 +38,7 @@ var LoginComponent = (function () {
         var _this = this;
         console.log(this.user.password);
         this.userService.login(this.user)
-            .subscribe(function () { return _this.router.navigate(["/list"]); }, function (error) { return alert("Unfortunately we could not find your account."); });
+            .subscribe(function () { return _this.router.navigate(["/dashboard"]); }, function (error) { return alert("Unfortunately we could not find your account."); });
     };
     LoginComponent.prototype.signUp = function () {
         var _this = this;

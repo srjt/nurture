@@ -1,0 +1,12 @@
+StackLayout {
+	background-color: white;
+  	margin: 2;
+} 
+.thumbnail{
+	height: 70%;
+ }
+.title{
+	height: 30%;
+	font-size: 11;
+ }
+
