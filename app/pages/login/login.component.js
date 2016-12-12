@@ -2,11 +2,11 @@
 var user_1 = require("../../shared/user/user");
 var user_service_1 = require("../../shared/user/user.service");
 var core_1 = require("@angular/core");
-var router_1 = require("@angular/router");
 var page_1 = require("ui/page");
+var router_1 = require("nativescript-angular/router");
 var LoginComponent = (function () {
-    function LoginComponent(router, userService, page) {
-        this.router = router;
+    function LoginComponent(routerExtensions, userService, page) {
+        this.routerExtensions = routerExtensions;
         this.userService = userService;
         this.page = page;
         this.isLoggingIn = true;
@@ -36,9 +36,8 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
-        console.log(this.user.password);
         this.userService.login(this.user)
-            .subscribe(function () { return _this.router.navigate(["/dashboard"]); }, function (error) { return alert("Unfortunately we could not find your account."); });
+            .subscribe(function () { return _this.routerExtensions.navigate(["/dashboard"], { clearHistory: true }); }, function (error) { return alert("Unfortunately we could not find your account."); });
     };
     LoginComponent.prototype.signUp = function () {
         var _this = this;
@@ -70,7 +69,7 @@ var LoginComponent = (function () {
             templateUrl: "pages/login/login.html",
             styleUrls: ["pages/login/login-common.css", "pages/login/login.css"],
         }), 
-        __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService, page_1.Page])
+        __metadata('design:paramtypes', [router_1.RouterExtensions, user_service_1.UserService, page_1.Page])
     ], LoginComponent);
     return LoginComponent;
 }());

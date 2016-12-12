@@ -1,11 +1,11 @@
 import { User } from "../../shared/user/user";
 import { UserService } from "../../shared/user/user.service";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { Router } from "@angular/router";
 import { Page } from "ui/page";
 import { Color } from "color";
 import { View } from "ui/core/view";
 import { TextField } from "ui/text-field";
+import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
   selector: "my-app",
@@ -21,8 +21,8 @@ export class LoginComponent implements OnInit {
   user: User;
   isLoggingIn = true;
  
-
-  constructor(private router: Router, private userService: UserService, private page: Page) {
+ 
+  constructor(private routerExtensions: RouterExtensions, private userService: UserService, private page: Page) {
     this.user = new User();
 
     //TODO: test code
@@ -49,10 +49,9 @@ export class LoginComponent implements OnInit {
     }
   }
   login() {
-    console.log(this.user.password);
     this.userService.login(this.user)
       .subscribe(
-        () => this.router.navigate(["/dashboard"]),
+        () => this.routerExtensions.navigate(["/dashboard"], { clearHistory: true }),
         (error) => alert("Unfortunately we could not find your account.")
       );
   }
