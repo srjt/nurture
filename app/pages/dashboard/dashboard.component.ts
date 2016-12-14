@@ -21,7 +21,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   	this.dashboardService.load().subscribe((res) =>{
   		this.data = res.data;
-  		console.log('Dashboard response ' + JSON.stringify(res.data));
   	});
   }
 }
