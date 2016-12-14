@@ -17,7 +17,7 @@ var DashboardService = (function () {
             .catch(this.handleErrors);
     };
     DashboardService.prototype.handleErrors = function (error) {
-        //console.log(JSON.stringify(error.json()));
+        console.log(JSON.stringify(error.json()));
         return Rx_1.Observable.throw(error);
     };
     DashboardService = __decorate([

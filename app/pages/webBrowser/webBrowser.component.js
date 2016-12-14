@@ -1,9 +1,6 @@
 "use strict";
 var core_1 = require("@angular/core");
 var nativescript_angular_1 = require("nativescript-angular");
-var frameModule = require('ui/frame');
-var pageModule = require('ui/page');
-var webViewModule = require("ui/web-view");
 var WebBrowserComponent = (function () {
     function WebBrowserComponent(pageRoute) {
         var _this = this;

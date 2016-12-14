@@ -4,10 +4,6 @@ import { View } from "ui/core/view";
 
 import { PageRoute } from "nativescript-angular";
 
-
-var frameModule = require('ui/frame');
-var pageModule = require('ui/page');
-var webViewModule = require("ui/web-view");
 @Component({
   selector: "web-browser",
   providers: [],

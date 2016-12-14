@@ -24,7 +24,6 @@ var UserService = (function () {
         return Rx_1.Observable.throw(error);
     };
     UserService.prototype.login = function (user) {
-        console.log(user.email);
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
         return this.http.post(config_1.Config.apiUrl + "oauth/token", JSON.stringify({

@@ -11,7 +11,6 @@ var DashboardComponent = (function () {
         var _this = this;
         this.dashboardService.load().subscribe(function (res) {
             _this.data = res.data;
-            console.log('Dashboard response ' + JSON.stringify(res.data));
         });
     };
     DashboardComponent = __decorate([
