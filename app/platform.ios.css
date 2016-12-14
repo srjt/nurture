@@ -3,7 +3,9 @@ Page {
   background-position: center;
   background-size: cover;
 }
- 
+GridLayout {
+	margin-top: -20;
+} 
 /*TextField {
   border-width: 1;
   border-color: #e8d3b2;

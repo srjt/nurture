@@ -4,7 +4,10 @@ import { Page } from "ui/page";
 import { Color } from "color";
 import { View } from "ui/core/view";
 import { TextField } from "ui/text-field";
+import { RouterExtensions } from "nativescript-angular/router";
+
 import * as imageSource from "image-source";
+
 @Component({
   selector: "dashboard-item",
   providers: [],
@@ -15,10 +18,14 @@ export class DashboardItemComponent implements OnInit {
 
   @Input() data;
   thumbnailPic: any
-  constructor(private page: Page) {
+  constructor(private routerExtensions: RouterExtensions, private page: Page) {
   }
   ngOnInit() {
     this.loadImage();
+  }
+
+  browseLink() {
+    this.routerExtensions.navigate(["/browse" ,   this.data.url ]);
   }
 
   loadImage(){

@@ -65,7 +65,6 @@ export class LoginComponent implements OnInit {
         () => alert("Unfortunately we were unable to create your account.")
       );
   }
-
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
   }
