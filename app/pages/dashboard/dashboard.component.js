@@ -2,15 +2,30 @@
 var dashboard_service_1 = require("../../shared/dashboard/dashboard.service");
 var core_1 = require("@angular/core");
 var page_1 = require("ui/page");
+var element_registry_1 = require("nativescript-angular/element-registry");
+element_registry_1.registerElement("PullToRefresh", function () { return require("nativescript-pulltorefresh").PullToRefresh; });
 var DashboardComponent = (function () {
     function DashboardComponent(dashboardService, page) {
         this.dashboardService = dashboardService;
         this.page = page;
+        this.data = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
+        this.load(null);
+    };
+    DashboardComponent.prototype.refreshList = function (args) {
+        console.log(args[0]);
+        this.load(args);
+    };
+    DashboardComponent.prototype.load = function (args) {
         var _this = this;
+        console.log('reloading dashboard');
         this.dashboardService.load().subscribe(function (res) {
             _this.data = res.data;
+            if (args) {
+                console.log('finish loading...');
+                args.object.refreshing = false;
+            }
         });
     };
     DashboardComponent = __decorate([
