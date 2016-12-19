@@ -40,6 +40,10 @@ export class DashboardComponent implements OnInit {
         console.log('finish loading...');
         args.object.refreshing = false;
       }
+    }, ()=>{
+      if(args){ 
+        args.object.refreshing = false;
+      }
     });    
   }
 }

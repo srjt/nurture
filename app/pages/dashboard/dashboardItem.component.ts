@@ -33,6 +33,7 @@ export class DashboardItemComponent implements OnInit {
       .then((res: any) => {
         this.thumbnailPic = res;
        }, (error) => {
+         console.log(error);
         this.thumbnailPic = imageSource.fromResource("bg_login");
       });
   }

@@ -26,6 +26,10 @@ var DashboardComponent = (function () {
                 console.log('finish loading...');
                 args.object.refreshing = false;
             }
+        }, function () {
+            if (args) {
+                args.object.refreshing = false;
+            }
         });
     };
     DashboardComponent = __decorate([
