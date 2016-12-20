@@ -16,7 +16,7 @@ var DashboardItemComponent = (function () {
     };
     DashboardItemComponent.prototype.loadImage = function () {
         var _this = this;
-        imageSource.fromUrl(this.data.picUrl)
+        imageSource.fromUrl(this.data.thumbnail)
             .then(function (res) {
             _this.thumbnailPic = res;
         }, function (error) {

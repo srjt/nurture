@@ -29,7 +29,7 @@ export class DashboardItemComponent implements OnInit {
   }
 
   loadImage(){
-    imageSource.fromUrl(this.data.picUrl)
+    imageSource.fromUrl(this.data.thumbnail)
       .then((res: any) => {
         this.thumbnailPic = res;
        }, (error) => {
