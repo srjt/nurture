@@ -6,7 +6,11 @@ StackLayout {
 	height: 70%;
  }
 .title{
-	height: 30%;
+	height: 20%;
 	font-size: 11;
  }
+.date {
+	height: 10%;
+	font-size:8;
+}
 
