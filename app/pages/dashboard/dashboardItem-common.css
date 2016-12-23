@@ -10,7 +10,11 @@ StackLayout {
 	font-size: 11;
  }
 .date {
-	height: 10%;
+	height: 5%;
+	font-size:8;
+}
+.thumbnailLink{
+	height: 5%;
 	font-size:8;
 }
 

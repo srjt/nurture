@@ -25,7 +25,7 @@ export class DashboardItemComponent implements OnInit {
   }
 
   browseLink() {
-    this.routerExtensions.navigate(["/browse" ,   this.data.url ]);
+    // this.routerExtensions.navigate(["/browse" ,   this.data.link ]);
   }
 
   loadImage(){

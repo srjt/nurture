@@ -9,11 +9,11 @@ import { Config } from "../config";
 @Injectable()
 export class DashboardService {
   constructor(private http: Http) {}
-  load() {
+  load(pageNo) {
+    pageNo = pageNo || 1;
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
-
-    return this.http.get(Config.apiUrlDashboard, { headers: headers })
+    return this.http.get(Config.apiUrlDashboard + "?pageNo=" + pageNo , { headers: headers })
                     .map(response => response.json())
                     .catch(this.handleErrors);
   }

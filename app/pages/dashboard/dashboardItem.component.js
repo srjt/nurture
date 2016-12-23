@@ -12,7 +12,7 @@ var DashboardItemComponent = (function () {
         this.loadImage();
     };
     DashboardItemComponent.prototype.browseLink = function () {
-        this.routerExtensions.navigate(["/browse", this.data.url]);
+        // this.routerExtensions.navigate(["/browse" ,   this.data.link ]);
     };
     DashboardItemComponent.prototype.loadImage = function () {
         var _this = this;

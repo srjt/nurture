@@ -1,13 +1,21 @@
 <ActionBar title="Dashboard">
 </ActionBar>
-<StackLayout >
-    <PullToRefresh (refresh)="refreshList($event)">
-		<ScrollView orientation="vertical" ios.pagingEnabled="true" class="dashboard" >
-			<WrapLayout orientation="horizontal">
-			  	<StackLayout  *ngFor="let item of data" class="dashboarditem">
+<!-- <StackLayout > -->
+    <PullToRefresh #pullToRefresh (refresh)="refreshList($event)">
+		<ScrollView #dashboardScrollView orientation="vertical" ios.pagingEnabled="true" class="dashboard" >
+			<!-- <WrapLayout orientation="horizontal">
+			  	<StackLayout *ngFor="let item of data" class="dashboarditem">
 					<dashboard-item [data]="item" ></dashboard-item>
 			  	</StackLayout>	
 	  		</WrapLayout>
+ -->
+	  		  <ListView [items]="data">
+			    <template let-item="item">
+				     <StackLayout  class="dashboarditem">
+						<dashboard-item [data]="item" ></dashboard-item>
+				  	</StackLayout>	
+			    </template>
+			  </ListView>
 		</ScrollView>
     </PullToRefresh>
-</StackLayout>
+<!-- </StackLayout> -->

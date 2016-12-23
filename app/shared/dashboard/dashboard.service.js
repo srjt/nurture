@@ -9,10 +9,11 @@ var DashboardService = (function () {
     function DashboardService(http) {
         this.http = http;
     }
-    DashboardService.prototype.load = function () {
+    DashboardService.prototype.load = function (pageNo) {
+        pageNo = pageNo || 1;
         var headers = new http_1.Headers();
         headers.append("Content-Type", "application/json");
-        return this.http.get(config_1.Config.apiUrlDashboard, { headers: headers })
+        return this.http.get(config_1.Config.apiUrlDashboard + "?pageNo=" + pageNo, { headers: headers })
             .map(function (response) { return response.json(); })
             .catch(this.handleErrors);
     };
