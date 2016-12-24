@@ -1,15 +1,18 @@
-StackLayout {
+.dashboard-item {
 	background-color: white;
-  	margin: 2;
-} 
+	width: 49%;
+	height: 200; 
+ } 
 .thumbnail{
-	height: 70%;
+	height: 80%;
  }
 .title{
 	height: 20%;
 	font-size: 11;
+	margin: 0;
+	padding: 0;
  }
-.date {
+/*.date {
 	height: 5%;
 	font-size:8;
 }
@@ -18,3 +21,4 @@ StackLayout {
 	font-size:8;
 }
 
+*/

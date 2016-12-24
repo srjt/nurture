@@ -17,7 +17,6 @@ import * as imageSource from "image-source";
 export class DashboardItemComponent implements OnInit {
 
   @Input() data;
-  thumbnailPic: any
   constructor(private routerExtensions: RouterExtensions, private page: Page) {
   }
   ngOnInit() {
@@ -31,10 +30,10 @@ export class DashboardItemComponent implements OnInit {
   loadImage(){
     imageSource.fromUrl(this.data.thumbnail)
       .then((res: any) => {
-        this.thumbnailPic = res;
+        this.data.thumbnailPic = res;
        }, (error) => {
-         console.log(error);
-        this.thumbnailPic = imageSource.fromResource("bg_login");
+         console.log(error + " URL " + this.data.thumbnail);
+        this.data.thumbnailPic = imageSource.fromResource("bg_login");
       });
   }
 }

@@ -42,13 +42,13 @@ var DashboardComponent = (function () {
             for (var i = res.data.length - 1; i >= 0; i--) {
                 var oItem = new observable.Observable(res.data[i]);
                 var exists = false;
-                for (var j = _this.data.length - 1; j >= 0; j--) {
-                    console.log(JSON.stringify(_this.data[j]));
-                    if (_this.data[j] == res.data[i]) {
-                        exists = true;
-                        break;
+                if (_this.data)
+                    for (var j = _this.data.length - 1; j >= 0; j--) {
+                        if (_this.data.getItem(j).get("_id") == oItem.get("_id")) {
+                            exists = true;
+                            break;
+                        }
                     }
-                }
                 if (!exists) {
                     if (pageNo == 1) {
                         _this.data.unshift(oItem);
@@ -63,8 +63,9 @@ var DashboardComponent = (function () {
                 args.object.refreshing = false;
             }
         }, function () {
+            _this.loading = false;
             if (args) {
-                _this.loading = args.object.refreshing = false;
+                args.object.refreshing = false;
             }
         });
     };

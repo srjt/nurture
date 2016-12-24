@@ -4,7 +4,7 @@
 	<ScrollView #dashboardScrollView orientation="vertical" ios.pagingEnabled="true" class="dashboard" >
   		  <ListView [items]="data">
 		    <template let-item="item">
-			     <StackLayout  class="dashboarditem">
+			     <StackLayout >
 					<dashboard-item [data]="item" ></dashboard-item>
 			  	</StackLayout>	
 		    </template>

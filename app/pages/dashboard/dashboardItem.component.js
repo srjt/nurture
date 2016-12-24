@@ -18,10 +18,10 @@ var DashboardItemComponent = (function () {
         var _this = this;
         imageSource.fromUrl(this.data.thumbnail)
             .then(function (res) {
-            _this.thumbnailPic = res;
+            _this.data.thumbnailPic = res;
         }, function (error) {
-            console.log(error);
-            _this.thumbnailPic = imageSource.fromResource("bg_login");
+            console.log(error + " URL " + _this.data.thumbnail);
+            _this.data.thumbnailPic = imageSource.fromResource("bg_login");
         });
     };
     __decorate([

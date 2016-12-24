@@ -25,7 +25,7 @@ registerElement("PullToRefresh", () => require("nativescript-pulltorefresh").Pul
 })
 export class DashboardComponent implements OnInit {
 
-  data: Array<any> = new observableArrayModule.ObservableArray([]);
+  data: observableArrayModule.ObservableArray<observable.Observable>;
   currentPage: number;
   loading:boolean;
 
@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
   @ViewChild("pullToRefresh") pullToRefresh: ElementRef;
 
   constructor(private dashboardService: DashboardService, private page: Page) {
+    this.data = new observableArrayModule.ObservableArray([]);
   }
 
   ngOnInit() {
@@ -65,9 +66,9 @@ export class DashboardComponent implements OnInit {
       for (var i = res.data.length - 1; i >= 0; i--) {
         let oItem = new observable.Observable(res.data[i]);
         let exists = false;
+        if(this.data)
         for (var j = this.data.length - 1; j >= 0; j--) {
-          console.log(JSON.stringify(this.data[j]));
-          if(this.data[j] == res.data[i]){
+          if(this.data.getItem(j).get("_id")  == oItem.get("_id") ){
             exists = true;
             break;
           }
@@ -86,8 +87,9 @@ export class DashboardComponent implements OnInit {
         args.object.refreshing = false;
       }
     }, ()=>{
+      this.loading = false;
       if(args){ 
-        this.loading = args.object.refreshing = false;
+         args.object.refreshing = false;
       }
     });    
   }
