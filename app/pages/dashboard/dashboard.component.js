@@ -5,6 +5,7 @@ var observable = require("data/observable");
 var observableArrayModule = require("data/observable-array");
 var core_1 = require("@angular/core");
 var page_1 = require("ui/page");
+var list_view_1 = require("ui/list-view");
 var element_registry_1 = require("nativescript-angular/element-registry");
 element_registry_1.registerElement("PullToRefresh", function () { return require("nativescript-pulltorefresh").PullToRefresh; });
 var DashboardComponent = (function () {
@@ -15,30 +16,29 @@ var DashboardComponent = (function () {
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
-        var dvScrollView = this.dashboardScrollView.nativeElement;
+        var dvListView = this.dashboardListView.nativeElement;
         this.currentPage = 1;
         this.loading = false;
-        var onScroll = _.throttle(function () {
-            _this.currentPage++;
-            _this.load(null, _this.currentPage);
-        }, 1000, { 'trailing': true });
-        dvScrollView.on('scroll', function (data) {
-            if ((dvScrollView.scrollableHeight - dvScrollView.verticalOffset) <= 0 && !_this.loading) {
-                onScroll();
-            }
+        dvListView.addEventListener(list_view_1.ListView.loadMoreItemsEvent, function (data) {
+            _this.load(null, ++_this.currentPage);
         });
         this.load(null, this.currentPage);
     };
     DashboardComponent.prototype.refreshList = function (args) {
         var _this = this;
+        console.log("refreshList");
         _.throttle(function () {
-            _this.load(args, 1);
+            if (!_this.loading) {
+                _this.load(args, 1);
+            }
         }, 2000)();
     };
     DashboardComponent.prototype.load = function (args, pageNo) {
         var _this = this;
+        console.log("loading.." + this.loading);
         this.loading = true;
         this.dashboardService.load(pageNo).subscribe(function (res) {
+            console.log("loaded ");
             for (var i = res.data.length - 1; i >= 0; i--) {
                 var oItem = new observable.Observable(res.data[i]);
                 var exists = false;
@@ -70,9 +70,9 @@ var DashboardComponent = (function () {
         });
     };
     __decorate([
-        core_1.ViewChild("dashboardScrollView"), 
+        core_1.ViewChild("dashboardListView"), 
         __metadata('design:type', core_1.ElementRef)
-    ], DashboardComponent.prototype, "dashboardScrollView", void 0);
+    ], DashboardComponent.prototype, "dashboardListView", void 0);
     __decorate([
         core_1.ViewChild("pullToRefresh"), 
         __metadata('design:type', core_1.ElementRef)

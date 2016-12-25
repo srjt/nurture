@@ -20,7 +20,6 @@ var DashboardItemComponent = (function () {
             .then(function (res) {
             _this.data.thumbnailPic = res;
         }, function (error) {
-            console.log(error + " URL " + _this.data.thumbnail);
             _this.data.thumbnailPic = imageSource.fromResource("bg_login");
         });
     };

@@ -8,9 +8,8 @@ import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Page } from "ui/page";
 import { Color } from "color";
 import { View } from "ui/core/view";
-import { TextField } from "ui/text-field";
-import { ScrollEventData } from "ui/scroll-view";
-import { ScrollView } from "ui/scroll-view";
+import { TextField } from "ui/text-field";  
+import { ListView } from "ui/list-view";
 
 import { registerElement, ViewClass } from "nativescript-angular/element-registry";
 import {PullToRefresh} from "nativescript-pulltorefresh";
@@ -29,7 +28,7 @@ export class DashboardComponent implements OnInit {
   currentPage: number;
   loading:boolean;
 
-  @ViewChild("dashboardScrollView") dashboardScrollView: ElementRef;
+  @ViewChild("dashboardListView") dashboardListView: ElementRef;
   @ViewChild("pullToRefresh") pullToRefresh: ElementRef;
 
   constructor(private dashboardService: DashboardService, private page: Page) {
@@ -37,32 +36,30 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    let dvScrollView = <ScrollView>this.dashboardScrollView.nativeElement;
+    let dvListView = <ListView>this.dashboardListView.nativeElement;
     this.currentPage = 1;
-
     this.loading = false;
-    let onScroll =  _.throttle(()=>{
-          this.currentPage++;
-          this.load(null, this.currentPage);
-        }, 1000, { 'trailing': true });
-    dvScrollView.on('scroll',(data: any)=>{
-      if((dvScrollView.scrollableHeight - dvScrollView.verticalOffset) <=0 && !this.loading){
-        onScroll();  
-      }
+    
+    dvListView.addEventListener(ListView.loadMoreItemsEvent,(data: any)=>{
+      this.load(null, ++this.currentPage);
     });
     this.load(null, this.currentPage);
   }
 
   refreshList(args) {
+    console.log("refreshList");
     _.throttle(()=>{
-      this.load(args, 1);
+      if(!this.loading){ 
+        this.load(args, 1);
+      }
     }, 2000)();
   }
 
   load(args, pageNo){
-
-    this.loading = true;
+    console.log("loading.." + this.loading);
+    this.loading =  true;
     this.dashboardService.load(pageNo).subscribe((res) =>{
+      console.log("loaded ");
       for (var i = res.data.length - 1; i >= 0; i--) {
         let oItem = new observable.Observable(res.data[i]);
         let exists = false;

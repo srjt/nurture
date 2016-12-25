@@ -29,10 +29,9 @@ export class DashboardItemComponent implements OnInit {
 
   loadImage(){
     imageSource.fromUrl(this.data.thumbnail)
-      .then((res: any) => {
+      .then((res: imageSource.ImageSource) => {
         this.data.thumbnailPic = res;
        }, (error) => {
-         console.log(error + " URL " + this.data.thumbnail);
         this.data.thumbnailPic = imageSource.fromResource("bg_login");
       });
   }
