@@ -52,14 +52,12 @@ export class DashboardComponent implements OnInit {
       if(!this.loading){ 
         this.load(args, 1);
       }
-    }, 2000)();
+    }, 1000)();
   }
 
   load(args, pageNo){
-    console.log("loading.." + this.loading);
     this.loading =  true;
     this.dashboardService.load(pageNo).subscribe((res) =>{
-      console.log("loaded ");
       for (var i = res.data.length - 1; i >= 0; i--) {
         let oItem = new observable.Observable(res.data[i]);
         let exists = false;

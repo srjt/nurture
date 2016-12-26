@@ -31,14 +31,12 @@ var DashboardComponent = (function () {
             if (!_this.loading) {
                 _this.load(args, 1);
             }
-        }, 2000)();
+        }, 1000)();
     };
     DashboardComponent.prototype.load = function (args, pageNo) {
         var _this = this;
-        console.log("loading.." + this.loading);
         this.loading = true;
         this.dashboardService.load(pageNo).subscribe(function (res) {
-            console.log("loaded ");
             for (var i = res.data.length - 1; i >= 0; i--) {
                 var oItem = new observable.Observable(res.data[i]);
                 var exists = false;

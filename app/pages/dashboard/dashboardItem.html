@@ -2,7 +2,7 @@
    
 </ActionBar>
 <StackLayout  orientation="vertical" (tap)="browseLink()" class="dashboard-item">
-	<Image [src]="data.thumbnailPic" stretch="aspectFill"  class="thumbnail" ></Image>
+	<Image #thumbnailImage [imageSource]="data.thumbnailPic" stretch="aspectFill" loadMode="async"  class="thumbnail" ></Image>
 	<Label  horizontalAlignment="stretch" [text]="data.title"  textWrap="true" class="title"> </Label>
 	<!-- <Label  horizontalAlignment="stretch" [text]="data.publishedDate | date:'d/MMM/yy H:m'"  textWrap="true" class="date"> </Label>
 	<Label  horizontalAlignment="stretch" [text]="data._id"  textWrap="true" class="thumbnailLink"> </Label> -->
