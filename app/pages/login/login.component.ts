@@ -6,6 +6,7 @@ import { Color } from "color";
 import { View } from "ui/core/view";
 import { TextField } from "ui/text-field";
 import { RouterExtensions } from "nativescript-angular/router";
+import * as tnsOAuthModule from 'nativescript-oauth';
 
 @Component({
   selector: "my-app",
@@ -57,6 +58,15 @@ export class LoginComponent implements OnInit {
   }
   loginFacebook(){
     
+    tnsOAuthModule.login()
+      .then(()=>{
+          this.routerExtensions.navigate(["/dashboard"], { clearHistory: true })
+          console.dir("accessToken " + tnsOAuthModule.accessToken());
+      })
+      .catch((err)=>{
+          //do something with the error 
+          console.log(err)
+      });
   }
   //TODO: replace this code with own registration api
   signUp() {

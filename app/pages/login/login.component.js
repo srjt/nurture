@@ -4,6 +4,7 @@ var user_service_1 = require("../../shared/user/user.service");
 var core_1 = require("@angular/core");
 var page_1 = require("ui/page");
 var router_1 = require("nativescript-angular/router");
+var tnsOAuthModule = require('nativescript-oauth');
 var LoginComponent = (function () {
     function LoginComponent(routerExtensions, userService, page) {
         this.routerExtensions = routerExtensions;
@@ -40,6 +41,16 @@ var LoginComponent = (function () {
             .subscribe(function () { return _this.routerExtensions.navigate(["/dashboard"], { clearHistory: true }); }, function (error) { return alert("Unfortunately we could not find your account."); });
     };
     LoginComponent.prototype.loginFacebook = function () {
+        var _this = this;
+        tnsOAuthModule.login()
+            .then(function () {
+            _this.routerExtensions.navigate(["/dashboard"], { clearHistory: true });
+            console.dir("accessToken " + tnsOAuthModule.accessToken());
+        })
+            .catch(function (err) {
+            //do something with the error 
+            console.log(err);
+        });
     };
     //TODO: replace this code with own registration api
     LoginComponent.prototype.signUp = function () {
