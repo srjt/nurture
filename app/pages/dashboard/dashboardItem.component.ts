@@ -37,25 +37,26 @@ export class DashboardItemComponent implements OnInit {
   }
 
   loadImage(){
-    console.log("load image " + this.data.thumbnail);
+    console.log("loading image");
+    let thumbnailImage = <Image>this.thumbnailImage.nativeElement;
+    thumbnailImage.imageSource = null;
     if (application.android) {
       this.dashboardService.loadThumbnail(this.data.thumbnail)
         .then((img)=>{
-             this.data.thumbnailPic = img;
-             console.log("loaded image " + this.data.thumbnail);
+          thumbnailImage.imageSource = <imageSource.ImageSource>img ;
         },(err)=>{
           console.log(err + " URL " + this.data.thumbnail)
-          this.data.thumbnailPic = imageSource.fromResource("bg_login");
+          thumbnailImage.imageSource  = imageSource.fromResource("bg_login");
         });
     }
     else{
       imageSource.fromUrl(this.data.thumbnail)
         .then((res: imageSource.ImageSource) => {
-          this.data.thumbnailPic = res;
+          thumbnailImage.imageSource  = res;
           console.log("loaded image " + this.data.thumbnail);
          }, (err) => {
           console.log(err + " URL " + this.data.thumbnail);
-          this.data.thumbnailPic = imageSource.fromResource("bg_login");
+          thumbnailImage.imageSource = imageSource.fromResource("bg_login");
         });  
     }
   }

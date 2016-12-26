@@ -23,25 +23,26 @@ var DashboardItemComponent = (function () {
     };
     DashboardItemComponent.prototype.loadImage = function () {
         var _this = this;
-        console.log("load image " + this.data.thumbnail);
+        console.log("loading image");
+        var thumbnailImage = this.thumbnailImage.nativeElement;
+        thumbnailImage.imageSource = null;
         if (application.android) {
             this.dashboardService.loadThumbnail(this.data.thumbnail)
                 .then(function (img) {
-                _this.data.thumbnailPic = img;
-                console.log("loaded image " + _this.data.thumbnail);
+                thumbnailImage.imageSource = img;
             }, function (err) {
                 console.log(err + " URL " + _this.data.thumbnail);
-                _this.data.thumbnailPic = imageSource.fromResource("bg_login");
+                thumbnailImage.imageSource = imageSource.fromResource("bg_login");
             });
         }
         else {
             imageSource.fromUrl(this.data.thumbnail)
                 .then(function (res) {
-                _this.data.thumbnailPic = res;
+                thumbnailImage.imageSource = res;
                 console.log("loaded image " + _this.data.thumbnail);
             }, function (err) {
                 console.log(err + " URL " + _this.data.thumbnail);
-                _this.data.thumbnailPic = imageSource.fromResource("bg_login");
+                thumbnailImage.imageSource = imageSource.fromResource("bg_login");
             });
         }
     };
