@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.page.backgroundSpanUnderStatusBar = true;
     
     //TODO: test code
-    this.login(); 
+    //this.login(); 
   }
   submit() {
     if(!this.user.isValidEmail()){
@@ -55,6 +55,10 @@ export class LoginComponent implements OnInit {
         (error) => alert("Unfortunately we could not find your account.")
       );
   }
+  loginFacebook(){
+    
+  }
+  //TODO: replace this code with own registration api
   signUp() {
     this.userService.register(this.user)
       .subscribe(

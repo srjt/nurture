@@ -5,4 +5,6 @@
 
 		<Button [text]="isLoggingIn? 'Sign in' : 'Sign Up'" class="button-sign-in" (tap)="submit()"></Button>
 		<Button [text]="isLoggingIn? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()" class="button-sign-up"></Button>
+		<Button text="Sign in with Facebook" class="button-sign-in-fb" (tap)="loginFacebook()"></Button>
+
 	</StackLayout>

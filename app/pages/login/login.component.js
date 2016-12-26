@@ -20,7 +20,7 @@ var LoginComponent = (function () {
         this.page.backgroundImage = "res://bg_login";
         this.page.backgroundSpanUnderStatusBar = true;
         //TODO: test code
-        this.login();
+        //this.login(); 
     };
     LoginComponent.prototype.submit = function () {
         if (!this.user.isValidEmail()) {
@@ -39,6 +39,9 @@ var LoginComponent = (function () {
         this.userService.login(this.user)
             .subscribe(function () { return _this.routerExtensions.navigate(["/dashboard"], { clearHistory: true }); }, function (error) { return alert("Unfortunately we could not find your account."); });
     };
+    LoginComponent.prototype.loginFacebook = function () {
+    };
+    //TODO: replace this code with own registration api
     LoginComponent.prototype.signUp = function () {
         var _this = this;
         this.userService.register(this.user)

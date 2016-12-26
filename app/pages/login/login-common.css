@@ -23,6 +23,10 @@ Button, TextField {
 } 
 .button-sign-up {
   background-color: white;
-
 }
+.button-sign-in-fb{
+  background-color: #3b5998;
+  /*border-radius: 5;*/
+  color: white;
  
+} 
