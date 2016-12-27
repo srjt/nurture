@@ -44,11 +44,12 @@ var LoginComponent = (function () {
         var _this = this;
         tnsOAuthModule.login()
             .then(function () {
+            console.log("accessToken " + tnsOAuthModule.accessToken());
             _this.routerExtensions.navigate(["/dashboard"], { clearHistory: true });
-            console.dir("accessToken " + tnsOAuthModule.accessToken());
         })
             .catch(function (err) {
             //do something with the error 
+            console.log("ERROR");
             console.log(err);
         });
     };

@@ -23,7 +23,6 @@ var DashboardItemComponent = (function () {
     };
     DashboardItemComponent.prototype.loadImage = function () {
         var _this = this;
-        console.log("loading image");
         var thumbnailImage = this.thumbnailImage.nativeElement;
         thumbnailImage.imageSource = null;
         if (application.android) {
@@ -39,7 +38,6 @@ var DashboardItemComponent = (function () {
             imageSource.fromUrl(this.data.thumbnail)
                 .then(function (res) {
                 thumbnailImage.imageSource = res;
-                console.log("loaded image " + _this.data.thumbnail);
             }, function (err) {
                 console.log(err + " URL " + _this.data.thumbnail);
                 thumbnailImage.imageSource = imageSource.fromResource("bg_login");

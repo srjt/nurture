@@ -37,7 +37,6 @@ export class DashboardItemComponent implements OnInit {
   }
 
   loadImage(){
-    console.log("loading image");
     let thumbnailImage = <Image>this.thumbnailImage.nativeElement;
     thumbnailImage.imageSource = null;
     if (application.android) {
@@ -53,7 +52,6 @@ export class DashboardItemComponent implements OnInit {
       imageSource.fromUrl(this.data.thumbnail)
         .then((res: imageSource.ImageSource) => {
           thumbnailImage.imageSource  = res;
-          console.log("loaded image " + this.data.thumbnail);
          }, (err) => {
           console.log(err + " URL " + this.data.thumbnail);
           thumbnailImage.imageSource = imageSource.fromResource("bg_login");

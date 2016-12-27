@@ -57,15 +57,17 @@ export class LoginComponent implements OnInit {
       );
   }
   loginFacebook(){
-    
+
     tnsOAuthModule.login()
       .then(()=>{
+          console.log("accessToken " + tnsOAuthModule.accessToken());
+
           this.routerExtensions.navigate(["/dashboard"], { clearHistory: true })
-          console.dir("accessToken " + tnsOAuthModule.accessToken());
       })
       .catch((err)=>{
           //do something with the error 
-          console.log(err)
+          console.log("ERROR");
+          console.log( err);
       });
   }
   //TODO: replace this code with own registration api
