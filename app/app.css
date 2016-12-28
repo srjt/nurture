@@ -22,7 +22,15 @@ TextField {
 .medium-spacing {
   margin: 10;
 }
-
+.content-area {
+	height: 90%;
+}
+.footer {
+	height: 10%;
+	background-color: red;
+	border-width: 1;
+	border-color:green;
+}
 /*
 In many cases you may want to use the NativeScript core theme instead
 of writing your own CSS rules. For a full list of class names in the theme

@@ -6,6 +6,7 @@ import { NativeScriptFormsModule } from "nativescript-angular/forms";
 
 import { AppComponent } from "./app.component";
 import { DashboardItemComponent } from "./pages/dashboard/dashboardItem.component";
+import { FooterComponent } from "./shared/footer/footer.component";
 
 import { routes, navigatableComponents } from "./app.routing";
 
@@ -13,6 +14,7 @@ import { routes, navigatableComponents } from "./app.routing";
     declarations: [
     	AppComponent,
         DashboardItemComponent,
+        FooterComponent,
         ...navigatableComponents
     ],
     bootstrap: [AppComponent],
