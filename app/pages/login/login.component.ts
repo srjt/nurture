@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     this.page.backgroundSpanUnderStatusBar = true;
     
     //TODO: test code
-    //this.login(); 
+    // this.login();
   }
   submit() {
     if(!this.user.isValidEmail()){

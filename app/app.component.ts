@@ -1,7 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef, OnInit } from "@angular/core";
 
 @Component({
   selector: "main",
-  template: "<page-router-outlet></page-router-outlet>"
+  templateUrl: "app.html",
+  styleUrls:["/app.css"]
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(){
+  }
+}

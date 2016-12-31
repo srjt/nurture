@@ -6,7 +6,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: "main",
-            template: "<page-router-outlet></page-router-outlet>"
+            templateUrl: "app.html",
+            styleUrls: ["/app.css"]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

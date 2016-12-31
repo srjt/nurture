@@ -1,12 +1,11 @@
 "use strict";
 var core_1 = require("@angular/core");
-var nativescript_angular_1 = require("nativescript-angular");
+var router_1 = require('@angular/router');
 var WebBrowserComponent = (function () {
-    function WebBrowserComponent(pageRoute) {
+    function WebBrowserComponent(activatedRoute) {
         var _this = this;
-        this.pageRoute = pageRoute;
-        this.pageRoute.activatedRoute
-            .switchMap(function (activatedRoute) { return activatedRoute.params; })
+        this.activatedRoute = activatedRoute;
+        this.activatedRoute.params
             .forEach(function (params) { _this.url = params['url']; });
     }
     WebBrowserComponent.prototype.ngOnInit = function () {
@@ -21,10 +20,9 @@ var WebBrowserComponent = (function () {
         core_1.Component({
             selector: "web-browser",
             providers: [],
-            templateUrl: "pages/webBrowser/webBrowser.html",
-            styleUrls: ["pages/webBrowser/webBrowser-common.css"],
+            templateUrl: "pages/webBrowser/webBrowser.html"
         }), 
-        __metadata('design:paramtypes', [nativescript_angular_1.PageRoute])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute])
     ], WebBrowserComponent);
     return WebBrowserComponent;
 }());

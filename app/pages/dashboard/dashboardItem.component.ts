@@ -37,7 +37,7 @@ export class DashboardItemComponent implements OnInit {
   }
 
   loadImage(){
-    let thumbnailImage = <Image>this.thumbnailImage.nativeElement;
+      let thumbnailImage = <Image>this.thumbnailImage.nativeElement;
     thumbnailImage.imageSource = null;
     if (application.android) {
       this.dashboardService.loadThumbnail(this.data.thumbnail)

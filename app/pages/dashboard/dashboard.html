@@ -1,13 +1,11 @@
 <ActionBar title="Dashboard">
 </ActionBar>
 <StackLayout orientation="vertical">
-	<PullToRefresh #pullToRefresh (refresh)="refreshList($event)" class="content-area">
+	<PullToRefresh #pullToRefresh (refresh)="refreshList($event)">
 		<ListView [items]="data" #dashboardListView class="dashboard">
 			<template let-item="item">
 				<dashboard-item [data]="item"></dashboard-item>
 			</template>
 		</ListView>
 	</PullToRefresh>
-	<footer class="footer"></footer>
-	 
 </StackLayout>

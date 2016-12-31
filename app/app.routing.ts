@@ -5,8 +5,7 @@ import { WebBrowserComponent } from "./pages/webBrowser/webBrowser.component";
 export const routes = [
   { path: "", component: LoginComponent } ,
   { path: "dashboard", component: DashboardComponent },
-  { path: "browse/:url", component: WebBrowserComponent } 
-
+  { path: "browse/:url", component: WebBrowserComponent }
 ];
 
 export const navigatableComponents = [

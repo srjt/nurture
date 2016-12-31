@@ -21,7 +21,7 @@ var LoginComponent = (function () {
         this.page.backgroundImage = "res://bg_login";
         this.page.backgroundSpanUnderStatusBar = true;
         //TODO: test code
-        //this.login(); 
+        // this.login();
     };
     LoginComponent.prototype.submit = function () {
         if (!this.user.isValidEmail()) {

@@ -1,6 +1,12 @@
+.footer-content {
+	background-color: #F5EDE1;
+}
+.footer-block{
+    width:20%;
+    text-align: center;
+}
 
-.vertical-line  {
-    background-color: red;
-    width:1;
-    height: 100%;
- }
+.footer-title{
+    font-size: 10;
+}
+

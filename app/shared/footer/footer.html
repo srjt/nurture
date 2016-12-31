@@ -1,5 +1,22 @@
-<StackLayout orientation="horizontal">
-	 <Button text="Home" (tap)="navigate('home')" ></Button>
-     <Label class="vertical-line"></Label>
-	 <Button text="Marketplace" (tap)="navigate('market')"   ></Button>
-</StackLayout>  
+<StackLayout orientation="horizontal" class="footer-content">
+	<StackLayout orientation="vertical" class="footer-block">
+		<Image #dashboard src="res://dashboard" (tap)="navigate('dashboard')" class="footer-button"></Image>
+		<Label text="home" class="footer-title"></Label>
+	</StackLayout>
+	<StackLayout orientation="vertical" class="footer-block">
+		<Image #marketplace src="res://marketplace" (tap)="navigate('marketplace')" class="footer-button"></Image>
+		<Label text="market" class="footer-title"></Label>
+	</StackLayout>
+	<StackLayout orientation="vertical" class="footer-block">
+		<Image #tools src="res://tools" (tap)="navigate('tools')" class="footer-button"></Image>
+		<Label text="tools" class="footer-title"></Label>
+	</StackLayout>
+	<StackLayout orientation="vertical" class="footer-block">
+		<Image #analysis src="res://analysis" (tap)="navigate('analysis')" class="footer-button"></Image>
+		<Label text="analysis" class="footer-title"></Label>
+	</StackLayout>
+	<StackLayout orientation="vertical" class="footer-block">
+		<Image #settings src="res://settings" (tap)="navigate('settings')"  class="footer-button"></Image>
+		<Label text="settings" class="footer-title"></Label>
+	</StackLayout>
+</StackLayout>
