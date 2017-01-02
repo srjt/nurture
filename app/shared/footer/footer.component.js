@@ -20,8 +20,7 @@ var FooterComponent = (function () {
                 this.routerExtensions.navigate(["/dashboard"]);
                 break;
             case "marketplace":
-                var url = "www.google.com";
-                this.routerExtensions.navigate(["/browse", url]);
+                this.routerExtensions.navigate(["/marketplace"]);
                 break;
             case "tools":
                 this.routerExtensions.navigate([""]);

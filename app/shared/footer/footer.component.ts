@@ -20,7 +20,7 @@ export class FooterComponent implements OnInit {
     @ViewChild("analysis") analysis: ElementRef;
     @ViewChild("settings") settings: ElementRef;
     constructor(private routerExtensions: RouterExtensions,
-                private userService: UserService, ) {
+        private userService: UserService, ) {
     }
 
     ngOnInit() {
@@ -35,9 +35,8 @@ export class FooterComponent implements OnInit {
                 this.routerExtensions.navigate(["/dashboard"]);
                 break;
             case "marketplace":
-            let url = "www.google.com";
-            this.routerExtensions.navigate(["/browse", url]);
-                     break;
+                this.routerExtensions.navigate(["/marketplace"]);
+                break;
             case "tools":
                 this.routerExtensions.navigate([""]);
                 break;
