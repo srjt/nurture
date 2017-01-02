@@ -19,6 +19,8 @@ export class FooterComponent implements OnInit {
     @ViewChild("tools") tools: ElementRef;
     @ViewChild("analysis") analysis: ElementRef;
     @ViewChild("settings") settings: ElementRef;
+
+    selectedOption: string;
     constructor(private routerExtensions: RouterExtensions,
         private userService: UserService, ) {
     }
@@ -28,7 +30,6 @@ export class FooterComponent implements OnInit {
         this.navigate("dashboard")
     }
     navigate(pg) {
-        console.log("Navigating to " + pg);
         this.selectIcon(pg);
         switch (pg) {
             case "dashboard":
@@ -73,6 +74,7 @@ export class FooterComponent implements OnInit {
                 settings.imageSource = imageSource.fromResource("settings_selected");
                 break;
         }
+        this.selectedOption = pg;
     }
     unSelectAll() {
         let dashboard = <Image>this.dashboard.nativeElement;

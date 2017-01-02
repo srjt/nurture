@@ -13,7 +13,6 @@ var FooterComponent = (function () {
         this.navigate("dashboard");
     };
     FooterComponent.prototype.navigate = function (pg) {
-        console.log("Navigating to " + pg);
         this.selectIcon(pg);
         switch (pg) {
             case "dashboard":
@@ -57,6 +56,7 @@ var FooterComponent = (function () {
                 settings.imageSource = imageSource.fromResource("settings_selected");
                 break;
         }
+        this.selectedOption = pg;
     };
     FooterComponent.prototype.unSelectAll = function () {
         var dashboard = this.dashboard.nativeElement;
