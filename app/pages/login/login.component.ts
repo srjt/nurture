@@ -7,6 +7,7 @@ import { View } from "ui/core/view";
 import { TextField } from "ui/text-field";
 import { RouterExtensions } from "nativescript-angular/router";
 import * as tnsOAuthModule from 'nativescript-oauth';
+import { Config } from "../../shared/config";
 
 @Component({
   selector: "my-app",
@@ -22,8 +23,9 @@ export class LoginComponent implements OnInit {
   user: User;
   isLoggingIn = true;
  
- 
-  constructor(private routerExtensions: RouterExtensions, private userService: UserService, private page: Page) {
+  constructor(private routerExtensions: RouterExtensions, 
+              private userService: UserService, 
+              private page: Page) {
     this.user = new User();
 
     //TODO: test code
@@ -57,15 +59,12 @@ export class LoginComponent implements OnInit {
       );
   }
   loginFacebook(){
-
     tnsOAuthModule.login()
       .then(()=>{
-          console.log("accessToken " + tnsOAuthModule.accessToken());
-
+          Config.token = tnsOAuthModule.accessToken();
           this.routerExtensions.navigate(["/dashboard"], { clearHistory: true })
       })
       .catch((err)=>{
-          //do something with the error 
           console.log("ERROR");
           console.log( err);
       });

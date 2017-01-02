@@ -1,3 +1,5 @@
+import { UserService } from "../../shared/user/user.service";
+
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 import * as imageSource from "image-source";
@@ -5,6 +7,7 @@ import { Image } from "ui/image";
 
 @Component({
     selector: "footer",
+    providers: [UserService],
     templateUrl: "shared/footer/footer.html",
     styleUrls: ["shared/footer/footer-common.css", "shared/footer/footer.css"]
 })
@@ -16,7 +19,8 @@ export class FooterComponent implements OnInit {
     @ViewChild("tools") tools: ElementRef;
     @ViewChild("analysis") analysis: ElementRef;
     @ViewChild("settings") settings: ElementRef;
-    constructor(private routerExtensions: RouterExtensions) {
+    constructor(private routerExtensions: RouterExtensions,
+                private userService: UserService, ) {
     }
 
     ngOnInit() {

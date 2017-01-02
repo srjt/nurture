@@ -1,10 +1,12 @@
 "use strict";
+var user_service_1 = require("../../shared/user/user.service");
 var core_1 = require("@angular/core");
 var router_1 = require("nativescript-angular/router");
 var imageSource = require("image-source");
 var FooterComponent = (function () {
-    function FooterComponent(routerExtensions) {
+    function FooterComponent(routerExtensions, userService) {
         this.routerExtensions = routerExtensions;
+        this.userService = userService;
     }
     FooterComponent.prototype.ngOnInit = function () {
         console.log("onit footer");
@@ -92,10 +94,11 @@ var FooterComponent = (function () {
     FooterComponent = __decorate([
         core_1.Component({
             selector: "footer",
+            providers: [user_service_1.UserService],
             templateUrl: "shared/footer/footer.html",
             styleUrls: ["shared/footer/footer-common.css", "shared/footer/footer.css"]
         }), 
-        __metadata('design:paramtypes', [router_1.RouterExtensions])
+        __metadata('design:paramtypes', [router_1.RouterExtensions, user_service_1.UserService])
     ], FooterComponent);
     return FooterComponent;
 }());

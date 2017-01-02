@@ -6,6 +6,8 @@ import "rxjs/add/operator/map";
 
 import { User } from "./user";
 import { Config } from "../config";
+var  _ = require("lodash");
+
 
 @Injectable()
 export class UserService {
@@ -50,5 +52,8 @@ export class UserService {
       Config.token = data.Result.access_token;
     })
     .catch(this.handleErrors);
+  }
+  isLoggedIn(){
+    return !_.isEmpty(Config.token);
   }
 }

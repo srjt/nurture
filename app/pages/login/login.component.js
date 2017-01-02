@@ -5,6 +5,7 @@ var core_1 = require("@angular/core");
 var page_1 = require("ui/page");
 var router_1 = require("nativescript-angular/router");
 var tnsOAuthModule = require('nativescript-oauth');
+var config_1 = require("../../shared/config");
 var LoginComponent = (function () {
     function LoginComponent(routerExtensions, userService, page) {
         this.routerExtensions = routerExtensions;
@@ -44,11 +45,10 @@ var LoginComponent = (function () {
         var _this = this;
         tnsOAuthModule.login()
             .then(function () {
-            console.log("accessToken " + tnsOAuthModule.accessToken());
+            config_1.Config.token = tnsOAuthModule.accessToken();
             _this.routerExtensions.navigate(["/dashboard"], { clearHistory: true });
         })
             .catch(function (err) {
-            //do something with the error 
             console.log("ERROR");
             console.log(err);
         });

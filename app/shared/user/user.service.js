@@ -5,6 +5,7 @@ var Rx_1 = require("rxjs/Rx");
 require("rxjs/add/operator/do");
 require("rxjs/add/operator/map");
 var config_1 = require("../config");
+var _ = require("lodash");
 var UserService = (function () {
     function UserService(http) {
         this.http = http;
@@ -36,6 +37,9 @@ var UserService = (function () {
             config_1.Config.token = data.Result.access_token;
         })
             .catch(this.handleErrors);
+    };
+    UserService.prototype.isLoggedIn = function () {
+        return !_.isEmpty(config_1.Config.token);
     };
     UserService = __decorate([
         core_1.Injectable(), 

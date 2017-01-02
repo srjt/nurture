@@ -1,6 +1,6 @@
-<StackLayout orientation="horizontal" class="footer-content">
+<StackLayout orientation="horizontal" class="footer-content" [visibility]="userService.isLoggedIn() ? 'visible' : 'collapsed'">
 	<StackLayout orientation="vertical" class="footer-block">
-		<Image #dashboard src="res://dashboard" (tap)="navigate('dashboard')" class="footer-button"></Image>
+		<Image #dashboard src="res://dashboard_selected" (tap)="navigate('dashboard')" class="footer-button"></Image>
 		<Label text="home" class="footer-title"></Label>
 	</StackLayout>
 	<StackLayout orientation="vertical" class="footer-block">
