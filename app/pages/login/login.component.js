@@ -21,8 +21,11 @@ var LoginComponent = (function () {
         this.page.actionBarHidden = true;
         this.page.backgroundImage = "res://bg_login";
         this.page.backgroundSpanUnderStatusBar = true;
-        //TODO: test code
-        // this.login();
+        if (this.userService.isLoggedIn()) {
+            this.onLoginSuccess();
+        }
+        else {
+        }
     };
     LoginComponent.prototype.submit = function () {
         if (!this.user.isValidEmail()) {
@@ -39,14 +42,14 @@ var LoginComponent = (function () {
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.userService.login(this.user)
-            .subscribe(function () { return _this.routerExtensions.navigate(["/dashboard"], { clearHistory: true }); }, function (error) { return alert("Unfortunately we could not find your account."); });
+            .subscribe(function () { return _this.onLoginSuccess(); }, function (error) { return alert("Unfortunately we could not find your account."); });
     };
     LoginComponent.prototype.loginFacebook = function () {
         var _this = this;
         tnsOAuthModule.login()
             .then(function () {
             config_1.Config.token = tnsOAuthModule.accessToken();
-            _this.routerExtensions.navigate(["/dashboard"], { clearHistory: true });
+            _this.onLoginSuccess();
         })
             .catch(function (err) {
             console.log("ERROR");
@@ -64,6 +67,9 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.toggleDisplay = function () {
         this.isLoggingIn = !this.isLoggingIn;
+    };
+    LoginComponent.prototype.onLoginSuccess = function () {
+        this.routerExtensions.navigate(["/dashboard"], { clearHistory: true });
     };
     __decorate([
         core_1.ViewChild("container"), 

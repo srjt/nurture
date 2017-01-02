@@ -22,10 +22,10 @@ export class LoginComponent implements OnInit {
   @ViewChild("password") password: ElementRef;
   user: User;
   isLoggingIn = true;
- 
-  constructor(private routerExtensions: RouterExtensions, 
-              private userService: UserService, 
-              private page: Page) {
+
+  constructor(private routerExtensions: RouterExtensions,
+    private userService: UserService,
+    private page: Page) {
     this.user = new User();
 
     //TODO: test code
@@ -36,12 +36,16 @@ export class LoginComponent implements OnInit {
     this.page.actionBarHidden = true;
     this.page.backgroundImage = "res://bg_login";
     this.page.backgroundSpanUnderStatusBar = true;
-    
-    //TODO: test code
-    // this.login();
+
+    if (this.userService.isLoggedIn()) {
+      this.onLoginSuccess();
+    } else {
+      //TODO: test code
+      // this.login();
+    }
   }
   submit() {
-    if(!this.user.isValidEmail()){
+    if (!this.user.isValidEmail()) {
       alert("Enter a valid email address");
       return;
     }
@@ -54,33 +58,36 @@ export class LoginComponent implements OnInit {
   login() {
     this.userService.login(this.user)
       .subscribe(
-        () => this.routerExtensions.navigate(["/dashboard"], { clearHistory: true }),
-        (error) => alert("Unfortunately we could not find your account.")
+      () => this.onLoginSuccess(),
+      (error) => alert("Unfortunately we could not find your account.")
       );
   }
-  loginFacebook(){
+  loginFacebook() {
     tnsOAuthModule.login()
-      .then(()=>{
-          Config.token = tnsOAuthModule.accessToken();
-          this.routerExtensions.navigate(["/dashboard"], { clearHistory: true })
+      .then(() => {
+        Config.token = tnsOAuthModule.accessToken();
+        this.onLoginSuccess();
       })
-      .catch((err)=>{
-          console.log("ERROR");
-          console.log( err);
+      .catch((err) => {
+        console.log("ERROR");
+        console.log(err);
       });
   }
   //TODO: replace this code with own registration api
   signUp() {
     this.userService.register(this.user)
       .subscribe(
-        () => {
-          alert("Your account was successfully created.");
-          this.toggleDisplay();
-        },
-        () => alert("Unfortunately we were unable to create your account.")
+      () => {
+        alert("Your account was successfully created.");
+        this.toggleDisplay();
+      },
+      () => alert("Unfortunately we were unable to create your account.")
       );
   }
   toggleDisplay() {
     this.isLoggingIn = !this.isLoggingIn;
+  }
+  onLoginSuccess() {
+    this.routerExtensions.navigate(["/dashboard"], { clearHistory: true })
   }
 }
