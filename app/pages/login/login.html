@@ -1,10 +1,8 @@
- 	<StackLayout #container class="">
-	    <TextField #email hint="Email Address" keyboardType="email"
-	      autocorrect="false" autocapitalizationType="none" [(ngModel)]="user.email"></TextField>
-	    <TextField #password hint="Password" secure="true" [(ngModel)]="user.password"></TextField>
+<StackLayout #container class="">
+	<TextField #email hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" [(ngModel)]="user.email"></TextField>
+	<TextField #password hint="Password" secure="true" [(ngModel)]="user.password"></TextField>
+	<Button [text]="isLoggingIn? 'Sign in' : 'Sign Up'" class="button-sign-in" (tap)="submit()"></Button>
+	<Button [text]="isLoggingIn? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()" class="button-sign-up"></Button>
+	<Button text="Sign in with Facebook" class="button-sign-in-fb" (tap)="loginFacebook()"></Button>
 
-		<Button [text]="isLoggingIn? 'Sign in' : 'Sign Up'" class="button-sign-in" (tap)="submit()"></Button>
-		<Button [text]="isLoggingIn? 'Sign up' : 'Back to login'" (tap)="toggleDisplay()" class="button-sign-up"></Button>
-		<Button text="Sign in with Facebook" class="button-sign-in-fb" (tap)="loginFacebook()"></Button>
-
-	</StackLayout>
+</StackLayout>

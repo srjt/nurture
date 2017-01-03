@@ -2,8 +2,6 @@
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var Rx_1 = require("rxjs/Rx");
-require("rxjs/add/operator/do");
-require("rxjs/add/operator/map");
 var config_1 = require("../config");
 var _ = require("lodash");
 var UserService = (function () {

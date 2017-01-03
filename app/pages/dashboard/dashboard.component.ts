@@ -1,18 +1,13 @@
-var  _ = require("lodash");
-
 import { DashboardService } from "../../shared/dashboard/dashboard.service";
 import observable = require("data/observable");
 import observableArrayModule = require("data/observable-array");
 
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { Page } from "ui/page";
-import { Color } from "color";
-import { View } from "ui/core/view";
-import { TextField } from "ui/text-field";  
 import { ListView } from "ui/list-view";
-
 import { registerElement, ViewClass } from "nativescript-angular/element-registry";
-import {PullToRefresh} from "nativescript-pulltorefresh";
+import { PullToRefresh } from "nativescript-pulltorefresh";
+import  * as _ from "lodash";
 
 registerElement("PullToRefresh", () => require("nativescript-pulltorefresh").PullToRefresh);
 

@@ -1,5 +1,3 @@
-<ActionBar title="Dashboard">
-</ActionBar>
 <StackLayout orientation="vertical">
 	<PullToRefresh #pullToRefresh (refresh)="refreshList($event)">
 		<ListView [items]="data" #dashboardListView class="dashboard">

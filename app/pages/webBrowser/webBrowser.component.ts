@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { WebView } from "ui/web-view";
-import { View } from "ui/core/view";
-
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

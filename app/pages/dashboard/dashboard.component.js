@@ -1,5 +1,4 @@
 "use strict";
-var _ = require("lodash");
 var dashboard_service_1 = require("../../shared/dashboard/dashboard.service");
 var observable = require("data/observable");
 var observableArrayModule = require("data/observable-array");
@@ -7,6 +6,7 @@ var core_1 = require("@angular/core");
 var page_1 = require("ui/page");
 var list_view_1 = require("ui/list-view");
 var element_registry_1 = require("nativescript-angular/element-registry");
+var _ = require("lodash");
 element_registry_1.registerElement("PullToRefresh", function () { return require("nativescript-pulltorefresh").PullToRefresh; });
 var DashboardComponent = (function () {
     function DashboardComponent(dashboardService, page) {

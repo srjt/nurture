@@ -1,15 +1,9 @@
 import * as application from "application";
- 
 import { DashboardService } from "../../shared/dashboard/dashboard.service";
-
 import { Component, ElementRef, OnInit, ViewChild, Input } from "@angular/core";
 import { Page } from "ui/page";
-import { Color } from "color";
-import { View } from "ui/core/view";
-import { TextField } from "ui/text-field";
 import { RouterExtensions } from "nativescript-angular/router";
 import { Image } from "ui/image";
-
 import * as imageSource from "image-source";
 
 @Component({
