@@ -10,25 +10,12 @@ Page {
 	background-color: transparent;
 	font-size: 15;
 }
-
 TextField {
 	padding: 10;
 	font-size: 13;
 }
 
-.small-spacing {
-  margin: 5;
-}
-.medium-spacing {
-  margin: 10;
-}
-.content-area {
-	height: 94%;
-}
-.footer {
-	background-color: white; 
-	height: 40;
-}
+ 
 /*
 In many cases you may want to use the NativeScript core theme instead
 of writing your own CSS rules. For a full list of class names in the theme

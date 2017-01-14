@@ -7,6 +7,7 @@ var forms_1 = require("nativescript-angular/forms");
 var app_component_1 = require("./app.component");
 var dashboardItem_component_1 = require("./pages/dashboard/dashboardItem.component");
 var footer_component_1 = require("./shared/footer/footer.component");
+var pagetitle_component_1 = require("./components/pagetitle/pagetitle.component");
 var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
     function AppModule() {
@@ -16,7 +17,8 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 dashboardItem_component_1.DashboardItemComponent,
-                footer_component_1.FooterComponent
+                footer_component_1.FooterComponent,
+                pagetitle_component_1.PageTitleComponent
             ].concat(app_routing_1.navigatableComponents),
             bootstrap: [app_component_1.AppComponent],
             imports: [

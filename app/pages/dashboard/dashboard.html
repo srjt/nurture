@@ -1,6 +1,6 @@
-<StackLayout orientation="vertical">
+<StackLayout orientation="vertical" class="dashboard">
 	<PullToRefresh #pullToRefresh (refresh)="refreshList($event)">
-		<ListView [items]="data" #dashboardListView class="dashboard">
+		<ListView [items]="data" #dashboardListView >
 			<template let-item="item">
 				<dashboard-item [data]="item"></dashboard-item>
 			</template>

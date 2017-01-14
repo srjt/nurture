@@ -2,7 +2,6 @@
 	background-color: #F5EDE1;
 }
 .footer-block{
-    width:20%;
     text-align: center;
 }
 
@@ -10,7 +9,7 @@
     font-size: 10;
 }
 
-.footer-title-selected{
+.footer-title-selected {
     font-size: 10;
     font-weight: 700;
     color: green;

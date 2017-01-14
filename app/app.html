@@ -1,6 +1,11 @@
-<StackLayout>
-    <StackLayout class="content-area">
+<GridLayout columns="*" rows="40,*,40" class="main-page">
+    <StackLayout col="0" row="0" background-color="red">
+        <page-title></page-title>
+    </StackLayout>
+    <StackLayout col="0" row="1" background-color="blue">
         <router-outlet></router-outlet>
     </StackLayout>
-    <footer #footer class="footer"></footer>
-</StackLayout>
+    <StackLayout col="0" row="2" background-color="green">
+        <footer></footer>
+    </StackLayout>
+</GridLayout>

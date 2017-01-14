@@ -51,6 +51,8 @@ export class UserService {
     .catch(this.handleErrors);
   }
   isLoggedIn(){
+            console.log("current logged in called " );
+
     return !_.isEmpty(Config.token);
   }
 }
