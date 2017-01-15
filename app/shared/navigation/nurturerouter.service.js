@@ -2,13 +2,16 @@
 var nurture_enums_1 = require("./nurture.enums");
 var router_1 = require("nativescript-angular/router");
 var core_1 = require("@angular/core");
+var BehaviorSubject_1 = require('rxjs/BehaviorSubject');
 var NurtureRouter = (function () {
     function NurtureRouter(routerExtensions) {
         this.routerExtensions = routerExtensions;
-        this.currentRoute = nurture_enums_1.NurtureEnums.MainMenu.Dashboard;
+        this._navItemSource = new BehaviorSubject_1.BehaviorSubject(0);
+        this.navItem$ = this._navItemSource.asObservable();
+        this.navigateToMainRoute(nurture_enums_1.NurtureEnums.MainMenu.Dashboard);
     }
     NurtureRouter.prototype.navigateToMainRoute = function (menuItem) {
-        this.currentRoute = menuItem;
+        this._navItemSource.next(menuItem);
         switch (menuItem) {
             case nurture_enums_1.NurtureEnums.MainMenu.Dashboard:
                 this.routerExtensions.navigate(["/dashboard"]);
@@ -27,9 +30,8 @@ var NurtureRouter = (function () {
                 break;
         }
     };
-    NurtureRouter.prototype.getCurrentMainMenuTitle = function () {
-        console.log("current rout is " + this.currentRoute);
-        switch (this.currentRoute) {
+    NurtureRouter.prototype.getMainMenuTitle = function (menuItem) {
+        switch (menuItem) {
             case nurture_enums_1.NurtureEnums.MainMenu.Dashboard:
                 return "Dashboard";
             case nurture_enums_1.NurtureEnums.MainMenu.Marketplace:

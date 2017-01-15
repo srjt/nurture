@@ -10,7 +10,6 @@ import buttonModule = require("ui/button");
 
 @Component({
     selector: "footer",
-    providers: [UserService, NurtureRouter],
     templateUrl: "shared/footer/footer.html",
     styleUrls: ["shared/footer/footer-common.css", "shared/footer/footer.css"]
 })

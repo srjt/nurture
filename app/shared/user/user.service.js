@@ -37,7 +37,6 @@ var UserService = (function () {
             .catch(this.handleErrors);
     };
     UserService.prototype.isLoggedIn = function () {
-        console.log("current logged in called ");
         return !_.isEmpty(config_1.Config.token);
     };
     UserService = __decorate([

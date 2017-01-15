@@ -1,6 +1,9 @@
 import { User } from "../../shared/user/user";
 import { UserService } from "../../shared/user/user.service";
+import { NurtureRouter } from "../../shared/navigation/nurturerouter.service";
+import { NurtureEnums } from "../../shared/navigation/nurture.enums";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+
 import { Page } from "ui/page";
 import { RouterExtensions } from "nativescript-angular/router";
 import * as tnsOAuthModule from 'nativescript-oauth';
@@ -8,7 +11,6 @@ import { Config } from "../../shared/config";
 
 @Component({
   selector: "my-app",
-  providers: [UserService],
   templateUrl: "pages/login/login.html",
   styleUrls: ["pages/login/login-common.css", "pages/login/login.css"],
 })
@@ -22,7 +24,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private routerExtensions: RouterExtensions,
     private userService: UserService,
-    private page: Page) {
+    private page: Page,
+    private nurtureRouter: NurtureRouter) {
     this.user = new User();
 
     //TODO: test code
@@ -85,6 +88,7 @@ export class LoginComponent implements OnInit {
     this.isLoggingIn = !this.isLoggingIn;
   }
   onLoginSuccess() {
-    this.routerExtensions.navigate(["/dashboard"], { clearHistory: true })
+    this.nurtureRouter.navigateToMainRoute(NurtureEnums.MainMenu.Marketplace, {clearHistory: true});
+    // this.routerExtensions.navigate(["/dashboard"], { clearHistory: true })
   }
 }

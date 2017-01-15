@@ -9,6 +9,9 @@ import { DashboardItemComponent } from "./pages/dashboard/dashboardItem.componen
 import { FooterComponent } from "./shared/footer/footer.component";
 import { PageTitleComponent } from "./components/pagetitle/pagetitle.component";
 
+import { UserService } from "./shared/user/user.service";
+import { NurtureRouter } from "./shared/navigation/nurturerouter.service";
+
 import { routes, navigatableComponents } from "./app.routing";
 
 @NgModule({
@@ -20,6 +23,7 @@ import { routes, navigatableComponents } from "./app.routing";
         ...navigatableComponents
     ],
     bootstrap: [AppComponent],
+    providers: [UserService, NurtureRouter],
     imports: [
     	NativeScriptModule,
         NativeScriptHttpModule,

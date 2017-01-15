@@ -35,6 +35,7 @@ var FooterComponent = (function () {
     };
     FooterComponent.prototype.navigate = function (menuItem) {
         this.selectIcon(menuItem);
+        console.log('footer to ' + menuItem);
         this.nurtureRoutre.navigateToMainRoute(menuItem);
     };
     FooterComponent.prototype.selectIcon = function (menuItem) {
@@ -147,7 +148,6 @@ var FooterComponent = (function () {
     FooterComponent = __decorate([
         core_1.Component({
             selector: "footer",
-            providers: [user_service_1.UserService, nurturerouter_service_1.NurtureRouter],
             templateUrl: "shared/footer/footer.html",
             styleUrls: ["shared/footer/footer-common.css", "shared/footer/footer.css"]
         }), 
