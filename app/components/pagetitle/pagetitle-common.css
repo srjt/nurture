@@ -1,3 +1,8 @@
 .pagetitle-content {
 	background-color: #F5EDE1;
 }
+.pagetitle{
+	vertical-align: middle;
+	margin: 10 ;
+	font-weight: bold;
+}
