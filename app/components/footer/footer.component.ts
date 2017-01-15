@@ -10,8 +10,8 @@ import buttonModule = require("ui/button");
 
 @Component({
     selector: "footer",
-    templateUrl: "shared/footer/footer.html",
-    styleUrls: ["shared/footer/footer-common.css", "shared/footer/footer.css"]
+    templateUrl: "components/footer/footer.html",
+    styleUrls: ["components/footer/footer-common.css", "components/footer/footer.css"]
 })
 
 export class FooterComponent implements OnInit {
