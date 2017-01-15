@@ -10,7 +10,6 @@ export class NurtureRouter {
     public navItem$ = this._navItemSource.asObservable();
 
     constructor(private routerExtensions: RouterExtensions) {
-        this.navigateToMainRoute(NurtureEnums.MainMenu.Dashboard);
     }
     navigateToMainRoute(menuItem: NurtureEnums.MainMenu, options = {}) {
         this._navItemSource.next(menuItem);
@@ -32,18 +31,12 @@ export class NurtureRouter {
                 break;
         }
     }
-    getMainMenuTitle(menuItem) {
-        switch (menuItem) {
-            case NurtureEnums.MainMenu.Dashboard:
-                return "Dashboard";
-            case NurtureEnums.MainMenu.Marketplace:
-                return "Marketplace";
-            case NurtureEnums.MainMenu.Tools:
-                return "Tools";
-            case NurtureEnums.MainMenu.Analysis:
-                return "Analysis";
-            case NurtureEnums.MainMenu.Settings:
-                return "Settings";
+    navigateDashboard(menuItem: NurtureEnums.DashboardMenu, link: string) {
+        this._navItemSource.next(menuItem);
+        switch(menuItem){
+            case NurtureEnums.DashboardMenu.Browse: 
+                this.routerExtensions.navigate(["/browse" ,   link ]);
+            break;
         }
     }
 }

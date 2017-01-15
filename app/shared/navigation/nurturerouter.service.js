@@ -8,7 +8,6 @@ var NurtureRouter = (function () {
         this.routerExtensions = routerExtensions;
         this._navItemSource = new BehaviorSubject_1.BehaviorSubject(0);
         this.navItem$ = this._navItemSource.asObservable();
-        this.navigateToMainRoute(nurture_enums_1.NurtureEnums.MainMenu.Dashboard);
     }
     NurtureRouter.prototype.navigateToMainRoute = function (menuItem, options) {
         if (options === void 0) { options = {}; }
@@ -31,18 +30,12 @@ var NurtureRouter = (function () {
                 break;
         }
     };
-    NurtureRouter.prototype.getMainMenuTitle = function (menuItem) {
+    NurtureRouter.prototype.navigateDashboard = function (menuItem, link) {
+        this._navItemSource.next(menuItem);
         switch (menuItem) {
-            case nurture_enums_1.NurtureEnums.MainMenu.Dashboard:
-                return "Dashboard";
-            case nurture_enums_1.NurtureEnums.MainMenu.Marketplace:
-                return "Marketplace";
-            case nurture_enums_1.NurtureEnums.MainMenu.Tools:
-                return "Tools";
-            case nurture_enums_1.NurtureEnums.MainMenu.Analysis:
-                return "Analysis";
-            case nurture_enums_1.NurtureEnums.MainMenu.Settings:
-                return "Settings";
+            case nurture_enums_1.NurtureEnums.DashboardMenu.Browse:
+                this.routerExtensions.navigate(["/browse", link]);
+                break;
         }
     };
     NurtureRouter = __decorate([

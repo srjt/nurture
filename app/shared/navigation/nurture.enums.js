@@ -9,5 +9,9 @@ var NurtureEnums;
         MainMenu[MainMenu["Settings"] = 5] = "Settings";
     })(NurtureEnums.MainMenu || (NurtureEnums.MainMenu = {}));
     var MainMenu = NurtureEnums.MainMenu;
+    (function (DashboardMenu) {
+        DashboardMenu[DashboardMenu["Browse"] = 6] = "Browse";
+    })(NurtureEnums.DashboardMenu || (NurtureEnums.DashboardMenu = {}));
+    var DashboardMenu = NurtureEnums.DashboardMenu;
 })(NurtureEnums = exports.NurtureEnums || (exports.NurtureEnums = {}));
 //# sourceMappingURL=nurture.enums.js.map

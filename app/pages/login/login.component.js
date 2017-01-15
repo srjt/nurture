@@ -72,8 +72,7 @@ var LoginComponent = (function () {
         this.isLoggingIn = !this.isLoggingIn;
     };
     LoginComponent.prototype.onLoginSuccess = function () {
-        this.nurtureRouter.navigateToMainRoute(nurture_enums_1.NurtureEnums.MainMenu.Marketplace, { clearHistory: true });
-        // this.routerExtensions.navigate(["/dashboard"], { clearHistory: true })
+        this.nurtureRouter.navigateToMainRoute(nurture_enums_1.NurtureEnums.MainMenu.Dashboard, { clearHistory: true });
     };
     __decorate([
         core_1.ViewChild("container"), 

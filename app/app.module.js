@@ -10,6 +10,7 @@ var footer_component_1 = require("./shared/footer/footer.component");
 var pagetitle_component_1 = require("./components/pagetitle/pagetitle.component");
 var user_service_1 = require("./shared/user/user.service");
 var nurturerouter_service_1 = require("./shared/navigation/nurturerouter.service");
+var pagetitle_service_1 = require("./shared/navigation/pagetitle.service");
 var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
     function AppModule() {
@@ -23,7 +24,7 @@ var AppModule = (function () {
                 pagetitle_component_1.PageTitleComponent
             ].concat(app_routing_1.navigatableComponents),
             bootstrap: [app_component_1.AppComponent],
-            providers: [user_service_1.UserService, nurturerouter_service_1.NurtureRouter],
+            providers: [user_service_1.UserService, nurturerouter_service_1.NurtureRouter, pagetitle_service_1.PageTitle],
             imports: [
                 platform_1.NativeScriptModule,
                 http_1.NativeScriptHttpModule,

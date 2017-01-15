@@ -1,14 +1,15 @@
 "use strict";
 var application = require("application");
 var dashboard_service_1 = require("../../shared/dashboard/dashboard.service");
+var nurturerouter_service_1 = require("../../shared/navigation/nurturerouter.service");
+var nurture_enums_1 = require("../../shared/navigation/nurture.enums");
 var core_1 = require("@angular/core");
 var page_1 = require("ui/page");
-var router_1 = require("nativescript-angular/router");
 var imageSource = require("image-source");
 var DashboardItemComponent = (function () {
-    function DashboardItemComponent(dashboardService, routerExtensions, page) {
+    function DashboardItemComponent(dashboardService, nurtureRouter, page) {
         this.dashboardService = dashboardService;
-        this.routerExtensions = routerExtensions;
+        this.nurtureRouter = nurtureRouter;
         this.page = page;
     }
     DashboardItemComponent.prototype.ngOnInit = function () {
@@ -19,7 +20,7 @@ var DashboardItemComponent = (function () {
         }
     };
     DashboardItemComponent.prototype.browseLink = function () {
-        this.routerExtensions.navigate(["/browse", this.data.link]);
+        this.nurtureRouter.navigateDashboard(nurture_enums_1.NurtureEnums.DashboardMenu.Browse, this.data.link);
     };
     DashboardItemComponent.prototype.loadImage = function () {
         var _this = this;
@@ -59,7 +60,7 @@ var DashboardItemComponent = (function () {
             templateUrl: "pages/dashboard/dashboardItem.html",
             styleUrls: ["pages/dashboard/dashboardItem-common.css"],
         }), 
-        __metadata('design:paramtypes', [dashboard_service_1.DashboardService, router_1.RouterExtensions, page_1.Page])
+        __metadata('design:paramtypes', [dashboard_service_1.DashboardService, nurturerouter_service_1.NurtureRouter, page_1.Page])
     ], DashboardItemComponent);
     return DashboardItemComponent;
 }());

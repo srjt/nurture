@@ -1,10 +1,12 @@
 "use strict";
 var core_1 = require("@angular/core");
 var router_1 = require('@angular/router');
+var pagetitle_service_1 = require("../../shared/navigation/pagetitle.service");
 var WebBrowserComponent = (function () {
-    function WebBrowserComponent(activatedRoute) {
+    function WebBrowserComponent(activatedRoute, pageTitle) {
         var _this = this;
         this.activatedRoute = activatedRoute;
+        this.pageTitle = pageTitle;
         this.activatedRoute.params
             .forEach(function (params) { _this.url = params['url']; });
     }
@@ -19,10 +21,10 @@ var WebBrowserComponent = (function () {
     WebBrowserComponent = __decorate([
         core_1.Component({
             selector: "web-browser",
-            providers: [],
-            templateUrl: "pages/webBrowser/webBrowser.html"
+            templateUrl: "pages/webBrowser/webBrowser.html",
+            styleUrls: ["pages/webBrowser/webBrowser.css"],
         }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute])
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, pagetitle_service_1.PageTitle])
     ], WebBrowserComponent);
     return WebBrowserComponent;
 }());

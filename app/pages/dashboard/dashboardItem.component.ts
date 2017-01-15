@@ -1,8 +1,10 @@
 import * as application from "application";
 import { DashboardService } from "../../shared/dashboard/dashboard.service";
+import { NurtureRouter } from "../../shared/navigation/nurturerouter.service";
+import { NurtureEnums } from "../../shared/navigation/nurture.enums";
+
 import { Component, ElementRef, OnInit, ViewChild, Input } from "@angular/core";
 import { Page } from "ui/page";
-import { RouterExtensions } from "nativescript-angular/router";
 import { Image } from "ui/image";
 import * as imageSource from "image-source";
 
@@ -16,7 +18,9 @@ export class DashboardItemComponent implements OnInit {
   @ViewChild("thumbnailImage") thumbnailImage: ElementRef;
 
   @Input() data;
-  constructor(private dashboardService: DashboardService, private routerExtensions: RouterExtensions, private page: Page) {
+  constructor(private dashboardService: DashboardService, 
+              private nurtureRouter: NurtureRouter, 
+              private page: Page) {
   }
   ngOnInit() {
   }
@@ -27,7 +31,7 @@ export class DashboardItemComponent implements OnInit {
     }
   }
   browseLink() {
-    this.routerExtensions.navigate(["/browse" ,   this.data.link ]);
+    this.nurtureRouter.navigateDashboard(NurtureEnums.DashboardMenu.Browse, this.data.link);
   }
 
   loadImage(){

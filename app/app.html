@@ -1,11 +1,11 @@
 <GridLayout columns="*" rows="40,*,40" class="main-page">
-    <StackLayout col="0" row="0" background-color="red">
-        <page-title></page-title>
+    <StackLayout #pageTitleComponent col="0" row="0">
+        <page-title ></page-title>
     </StackLayout>
-    <StackLayout col="0" row="1" background-color="blue">
+    <StackLayout col="0" row="1">
         <router-outlet></router-outlet>
     </StackLayout>
-    <StackLayout col="0" row="2" background-color="green">
+    <StackLayout col="0" row="2" [visibility]="userService.isLoggedIn() ? 'visible' : 'collapsed'">
         <footer></footer>
     </StackLayout>
 </GridLayout>

@@ -11,6 +11,7 @@ import { PageTitleComponent } from "./components/pagetitle/pagetitle.component";
 
 import { UserService } from "./shared/user/user.service";
 import { NurtureRouter } from "./shared/navigation/nurturerouter.service";
+import { PageTitle } from "./shared/navigation/pagetitle.service";
 
 import { routes, navigatableComponents } from "./app.routing";
 
@@ -23,7 +24,7 @@ import { routes, navigatableComponents } from "./app.routing";
         ...navigatableComponents
     ],
     bootstrap: [AppComponent],
-    providers: [UserService, NurtureRouter],
+    providers: [UserService, NurtureRouter, PageTitle],
     imports: [
     	NativeScriptModule,
         NativeScriptHttpModule,

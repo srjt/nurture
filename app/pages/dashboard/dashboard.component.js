@@ -1,5 +1,6 @@
 "use strict";
 var dashboard_service_1 = require("../../shared/dashboard/dashboard.service");
+var pagetitle_service_1 = require("../../shared/navigation/pagetitle.service");
 var observable = require("data/observable");
 var observableArrayModule = require("data/observable-array");
 var core_1 = require("@angular/core");
@@ -9,9 +10,10 @@ var element_registry_1 = require("nativescript-angular/element-registry");
 var _ = require("lodash");
 element_registry_1.registerElement("PullToRefresh", function () { return require("nativescript-pulltorefresh").PullToRefresh; });
 var DashboardComponent = (function () {
-    function DashboardComponent(dashboardService, page) {
+    function DashboardComponent(dashboardService, page, pageTitle) {
         this.dashboardService = dashboardService;
         this.page = page;
+        this.pageTitle = pageTitle;
         this.data = new observableArrayModule.ObservableArray([]);
     }
     DashboardComponent.prototype.ngOnInit = function () {
@@ -82,7 +84,7 @@ var DashboardComponent = (function () {
             templateUrl: "pages/dashboard/dashboard.html",
             styleUrls: ["pages/dashboard/dashboard-common.css", "pages/dashboard/dashboard.css"],
         }), 
-        __metadata('design:paramtypes', [dashboard_service_1.DashboardService, page_1.Page])
+        __metadata('design:paramtypes', [dashboard_service_1.DashboardService, page_1.Page, pagetitle_service_1.PageTitle])
     ], DashboardComponent);
     return DashboardComponent;
 }());

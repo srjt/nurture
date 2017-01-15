@@ -1,4 +1,6 @@
 import { DashboardService } from "../../shared/dashboard/dashboard.service";
+import { PageTitle } from "../../shared/navigation/pagetitle.service";
+
 import observable = require("data/observable");
 import observableArrayModule = require("data/observable-array");
 
@@ -26,7 +28,9 @@ export class DashboardComponent implements OnInit {
   @ViewChild("dashboardListView") dashboardListView: ElementRef;
   @ViewChild("pullToRefresh") pullToRefresh: ElementRef;
 
-  constructor(private dashboardService: DashboardService, private page: Page) {
+  constructor(private dashboardService: DashboardService, 
+              private page: Page,
+              private pageTitle: PageTitle) {
     this.data = new observableArrayModule.ObservableArray([]);
   }
 

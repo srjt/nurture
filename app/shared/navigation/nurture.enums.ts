@@ -6,4 +6,7 @@ export module NurtureEnums {
         Analysis = 4,
         Settings = 5
     }
+    export enum DashboardMenu {
+        Browse = 6
+    }
 }

@@ -88,7 +88,6 @@ export class LoginComponent implements OnInit {
     this.isLoggingIn = !this.isLoggingIn;
   }
   onLoginSuccess() {
-    this.nurtureRouter.navigateToMainRoute(NurtureEnums.MainMenu.Marketplace, {clearHistory: true});
-    // this.routerExtensions.navigate(["/dashboard"], { clearHistory: true })
+    this.nurtureRouter.navigateToMainRoute(NurtureEnums.MainMenu.Dashboard, {clearHistory: true});
   }
 }

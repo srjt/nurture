@@ -1,8 +1,10 @@
 "use strict";
 var _ = require("lodash");
 var core_1 = require("@angular/core");
+var pagetitle_service_1 = require("../../shared/navigation/pagetitle.service");
 var MarketplaceComponent = (function () {
-    function MarketplaceComponent() {
+    function MarketplaceComponent(pageTitle) {
+        this.pageTitle = pageTitle;
     }
     MarketplaceComponent.prototype.ngOnInit = function () {
     };
@@ -25,7 +27,7 @@ var MarketplaceComponent = (function () {
             templateUrl: "pages/marketplace/marketplace.html",
             styleUrls: ["pages/marketplace/marketplace-common.css", "pages/marketplace/marketplace.css"],
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [pagetitle_service_1.PageTitle])
     ], MarketplaceComponent);
     return MarketplaceComponent;
 }());
