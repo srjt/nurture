@@ -10,9 +10,9 @@ export class NurtureRouter {
     public navItem$ = this._navItemSource.asObservable();
 
     constructor(private routerExtensions: RouterExtensions) {
-        this.navigateToMainRoute(NurtureEnums.MainMenu.Dashboard, {});
+        this.navigateToMainRoute(NurtureEnums.MainMenu.Dashboard);
     }
-    navigateToMainRoute(menuItem: NurtureEnums.MainMenu, options) {
+    navigateToMainRoute(menuItem: NurtureEnums.MainMenu, options = {}) {
         this._navItemSource.next(menuItem);
         switch (menuItem) {
             case NurtureEnums.MainMenu.Dashboard:

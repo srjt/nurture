@@ -9,7 +9,6 @@ var PageTitleComponent = (function () {
     }
     PageTitleComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.setPageTitle('testing');
         this.subscription = this.nurtureRouter.navItem$
             .subscribe(function (item) {
             _this.setPageTitle(_this.nurtureRouter.getMainMenuTitle(item));

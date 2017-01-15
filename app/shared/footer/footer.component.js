@@ -35,7 +35,6 @@ var FooterComponent = (function () {
     };
     FooterComponent.prototype.navigate = function (menuItem) {
         this.selectIcon(menuItem);
-        console.log('footer to ' + menuItem);
         this.nurtureRoutre.navigateToMainRoute(menuItem);
     };
     FooterComponent.prototype.selectIcon = function (menuItem) {

@@ -1,16 +1,19 @@
 "use strict";
 var user_1 = require("../../shared/user/user");
 var user_service_1 = require("../../shared/user/user.service");
+var nurturerouter_service_1 = require("../../shared/navigation/nurturerouter.service");
+var nurture_enums_1 = require("../../shared/navigation/nurture.enums");
 var core_1 = require("@angular/core");
 var page_1 = require("ui/page");
 var router_1 = require("nativescript-angular/router");
 var tnsOAuthModule = require('nativescript-oauth');
 var config_1 = require("../../shared/config");
 var LoginComponent = (function () {
-    function LoginComponent(routerExtensions, userService, page) {
+    function LoginComponent(routerExtensions, userService, page, nurtureRouter) {
         this.routerExtensions = routerExtensions;
         this.userService = userService;
         this.page = page;
+        this.nurtureRouter = nurtureRouter;
         this.isLoggingIn = true;
         this.user = new user_1.User();
         //TODO: test code
@@ -69,7 +72,8 @@ var LoginComponent = (function () {
         this.isLoggingIn = !this.isLoggingIn;
     };
     LoginComponent.prototype.onLoginSuccess = function () {
-        this.routerExtensions.navigate(["/dashboard"], { clearHistory: true });
+        this.nurtureRouter.navigateToMainRoute(nurture_enums_1.NurtureEnums.MainMenu.Marketplace, { clearHistory: true });
+        // this.routerExtensions.navigate(["/dashboard"], { clearHistory: true })
     };
     __decorate([
         core_1.ViewChild("container"), 
@@ -86,11 +90,10 @@ var LoginComponent = (function () {
     LoginComponent = __decorate([
         core_1.Component({
             selector: "my-app",
-            providers: [user_service_1.UserService],
             templateUrl: "pages/login/login.html",
             styleUrls: ["pages/login/login-common.css", "pages/login/login.css"],
         }), 
-        __metadata('design:paramtypes', [router_1.RouterExtensions, user_service_1.UserService, page_1.Page])
+        __metadata('design:paramtypes', [router_1.RouterExtensions, user_service_1.UserService, page_1.Page, nurturerouter_service_1.NurtureRouter])
     ], LoginComponent);
     return LoginComponent;
 }());
